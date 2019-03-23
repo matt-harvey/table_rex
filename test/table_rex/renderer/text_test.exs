@@ -1528,4 +1528,15 @@ defmodule TableRex.Renderer.TextTest do
            +--------------------+--------------------------+------------+
            """
   end
+
+  test "FIXME reproduce Issue 22" do
+    title = "abcdefghijklmnopqrstuvwxyz123456788" 
+    headers = [ "ID", "Test case name" ]
+    rows = [["1", "abcdefghijklmnopqrstu"]]
+
+    aString = TableRex.Table.new(rows, headers, title)
+      |> TableRex.Table.render!(horizontal_style: :header)
+
+    IO.puts(aString)
+  end
 end
